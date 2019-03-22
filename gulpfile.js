@@ -15,8 +15,8 @@ const sass = require('gulp-sass');
 //     gulp msg
 
 function msg (done){
-  done();
 
+  done();
   return console.log('GULP IS RUNING...');
 }
 
@@ -74,4 +74,5 @@ gulp.task('sass', sassy);
 // USE ALL TASK IN ONE TIME
 //  gulp build
 
-gulp.task('build', gulp.series(msg, copyHtml, imgMin, minify, sassy));
+//           Can also use gulp.series instad gulp.parallel but it is slower
+gulp.task('build', gulp.parallel(msg, copyHtml, imgMin, minify, sassy));
